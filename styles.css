@@ -1,0 +1,344 @@
+ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+}
+input {
+    display: none;
+}
+input:checked ~ ul {
+    max-height: 500px;
+}
+input:checked ~ label span {
+    background: transparent;
+}
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+main{
+    width: 375px;
+}
+
+body{
+    display: grid;
+    width: 375px;
+}
+
+header{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-image: linear-gradient(to right,#2104D9, #000000);
+    color: #ffffff;
+    padding: 10px;
+}
+
+nav{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 375px;
+}
+
+.more{
+    text-decoration: none;
+    background-color: #590242;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    display: block;
+    text-align: center;
+    margin: 10px 0 30px 32px;
+}
+
+.scroll{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.scroll section{
+    margin: 10px;
+    position: relative;
+}
+
+.scroll div{
+    position: absolute;
+    top: 251px;
+    background-color: rgba(255, 255, 255, .75);
+    padding: 5px;
+    height: 50px;
+    width: 350px;
+}
+
+
+footer{
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#trending{
+    background-color: #ffffff;
+    color: #590242;
+    margin-bottom: 20px;
+}
+
+#playlists{
+    background-color: #2699FB;
+    color: #ffffff;
+    margin-bottom: 25px;
+    grid-area: 1/3;
+}
+
+#playlists section{
+    background-color: #0D8DFB;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#currated{
+    background-color: #030A8C;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+#currated img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#currated section{
+    background-color: #020873;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* width: 50%; */
+    /* margin: 10px 0 30px 32px; */
+}
+
+h2{
+    padding: 10px;
+    margin: 10px 0 30px 32px;
+    color: #590242;
+}
+
+nav section{
+    color: #ffffff;
+}
+
+nav{
+    background-color: #030A8C;
+    color: #ffffff;
+}
+
+nav li{
+    text-decoration: none;
+    list-style: none;
+}
+
+nav a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul{
+    display: block;
+}
+
+
+
+@media screen and (min-width:834px) {
+    ul {
+        overflow: visible;
+        position: absolute;
+        top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    label span, input {
+        display: none;
+    }
+    main,nav,body,ul{
+        width: 834px;
+    }
+    #playlists, #currated{
+        width: 50%;
+        height: 500px;
+    }
+
+    #playlists .scroll, #currated .scroll{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #playlists .scroll div, #currated .scroll div{
+        position: absolute;
+        top: 251px;
+        background-color: rgba(255, 255, 255, .75);
+        padding: 5px;
+        height: 350px;
+        width: 350px;
+    }
+}
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html{
+    background-color: #020659;
+}
+
+body{
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+footer p{
+    font-size: .75em;
+}
+
+p, dl, dd {
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 1.25em;
+}
+
+h2, h3{
+    font-size: 1em;
+}
+
+h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+dl{
+    margin-top: 0px;
+}
+
+footer{
+    color: #590242;
+}
+
+
+ul li:first{
+    font-variant: small-caps;
+}
+
+
+
+dl{
+    display: flex;
+}
+
+dt{
+    padding-right: 5px;
+}
+
+audio{
+    position: absolute;
+    bottom: 150px;
+    left: 5px;
+}
+
+.more:hover{
+    background-color: #020659;
+}
+
+audio::-webkit-media-controls-mute-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+
+}
+audio::-webkit-media-controls-play-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-enclosure {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+#trending ::-webkit-scrollbar {
+    width: 15px;
+}
+#trending ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #590242;
+
+}
+#trending ::-webkit-scrollbar-thumb {
+    background: #590242;
+    border-radius: 5px;
+}
+#trending ::-webkit-scrollbar-thumb:hover {
+    background: #020659;
+}
+#playlists ::-webkit-scrollbar, #curated ::-webkit-scrollbar {
+    width: 15px;
+}
+#playlists ::-webkit-scrollbar-track, #curated ::-webkit-scrollbar-track  {
+    box-shadow: inset 0 0 15px #020659;
+}
+#playlists ::-webkit-scrollbar-thumb, #curated ::-webkit-scrollbar-thumb {
+    background: #020659;
+    border-radius: 5px;
+}
+#playlists ::-webkit-scrollbar-thumb:hover, #curated ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+#currated ::-webkit-scrollbar, #curated ::-webkit-scrollbar {
+    width: 15px;
+}
+#currated ::-webkit-scrollbar-track, #curated ::-webkit-scrollbar-track  {
+    box-shadow: inset 0 0 15px #020659;
+}
+#currated ::-webkit-scrollbar-thumb, #curated ::-webkit-scrollbar-thumb {
+    background: #020659;
+    border-radius: 5px;
+}
+#currated ::-webkit-scrollbar-thumb:hover, #curated ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+
